@@ -1,0 +1,73 @@
+
+
+
+body{
+    font-family: sans-serif;
+}
+#navBar{
+     display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+ }
+#catFact{
+ grid-column-start: 1;
+ grid-column-end: 3;
+ border: 1px solid gray;
+ border-radius: 5px;
+ font-family:sans-serif;
+ align-self: center;
+ margin: 0px;
+ padding: 10px;
+}
+#refresh{
+     width: 50%;
+     border: 1px solid gray;
+     border-radius: 5px;
+
+     align-self: center;
+ margin: 0px;
+ padding: 10px;
+}
+#selectNum{
+     width: 50%;
+     border: 1px solid gray;
+     border-radius: 5px;
+
+     align-self: center;
+ margin: 0px;
+ padding: 10px;
+}
+#mainSection{
+    border: 1px solid gray;
+    border-radius: 5px;
+height: 500px;
+ overflow: auto;
+
+    width: 75%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+#pagination{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+ 
+#pagination p{
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 8px;
+    align-self: center;
+}
+#pagination p:hover{
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
