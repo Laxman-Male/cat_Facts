@@ -1,48 +1,34 @@
 // https://catfact.ninja/facts
 
-let refresh = document.getElementById("refresh");
-refresh.addEventListener("click", () => {
-  window.location.reload();
-});
-
 let previous = document.getElementById("previous");
 let paginationValue = document.getElementById("paginationValue");
 let next = document.getElementById("next");
 
+let inputPage = 1;
+let inputLimit;
 let count = 0;
 let pageNum = document.getElementById("pageNum");
-let limit = document.getElementById("limit");
-let subBtn = document.getElementById("subBtn");
-// let x;
-let inputPage;
-let inputLimit;
-subBtn.addEventListener("click", () => {
-  inputPage = parseInt(pageNum.value) || 1;
-  inputLimit = parseInt(limit.value);
+let limit = document.getElementById("limitOption");
+pageNum.addEventListener("input", (e) => {
+  inputPage = e.target.value;
   paginationValue.innerText = inputPage;
-  if (inputLimit > 10) {
-    alert("Limit exceed Num...10");
-    return 0;
-  }
-  if (inputPage > 35) {
-    alert("Page number limit exceed!..");
-    return 0;
-  }
-
-  if (inputPage < 1) {
-    alert("Page number cannot be -Ve..");
-    return 0;
-  }
-
   fetchingApi();
 });
-
-const params = new URLSearchParams({
-  limit: 10,
-  // offset: 6 * 10,
+limit.addEventListener("input", (e) => {
+  inputLimit = e.target.value;
+  if (inputLimit > 34) {
+    return;
+  } else {
+    fetchingApi();
+  }
 });
+fetchingApi();
 
 async function fetchingApi() {
+  const params = new URLSearchParams({
+    limit: 10,
+    // offset: 6 * 10,
+  });
   let firstResponse = await fetch(
     `https://catfact.ninja/facts?${params.toString()}&page=${inputPage}`,
     {
