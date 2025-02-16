@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cat Facts</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <div id="navBar">
-      <p id="catFact">Cat Facts</p>
-      <!-- <p id="refresh">Refresh</p> -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cat Facts</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-      <div>
-        <form id="form_1">
-          <input type="number" placeholder="Page no." id="pageNum" max="30" />
-        </form>
-      </div>
-
-      <div>
-        <select id="limitOption">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-        </select>
-      </div>
+<body>
+  <div id="navBar">
+    <p style="width: 200px;"></p>
+    <!-- <p id="refresh">Refresh</p> -->
+    <h1>
+      Cat Facts
+    </h1>
+    <div>
+      <label for="limitOption">Facts per page</label>
+      <select id="limitOption">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
     </div>
-    <section id="mainSection"></section>
-    <footer id="pagination">
-      <p id="previous">&laquo;</p>
-      <p>...</p>
-      <p id="paginationValue">1</p>
-      <p>...</p>
-      <p id="next">&raquo;</p>
-    </footer>
 
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <div id="loader" style="display: none;">
+    Loading...
+  </div>
+  <section id="mainSection">
+  </section>
+  <footer id="pagination">
+    <p id="previous">&laquo;</p>
+    <p>...</p>
+    <div id="pagination-list-holder">
+
+    </div>
+    <!-- <p id="paginationValue">1</p> -->
+    <p>...</p>
+    <p id="next">&raquo;</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
