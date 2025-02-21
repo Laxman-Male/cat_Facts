@@ -10,11 +10,6 @@ let pageNum = document.getElementById("pageNum");
 let limit = document.getElementById("limitOption");
 let paginationHolder = document.getElementById("paginationHolder");
 let loading = document.getElementById("loadingState");
-limit.addEventListener("input", (e) => {
-  inputLimit = e.target.value;
-
-  fetchingApi(inputPage);
-});
 fetchingApi(inputPage);
 
 async function fetchingApi(inputPage) {
@@ -84,19 +79,13 @@ async function fetchingApi(inputPage) {
     return anchor;
   };
 
-  console.log(responseData.slice(0, inputLimit));
-  console.log(responseData, secondResponse.links);
   const links = secondResponse.links;
-  const label = secondResponse.current_page;
   links.forEach((link) => {
     const listedLink = CreatepaginationLink(link);
 
     footer.appendChild(listedLink);
   });
   let i = 0;
-  console.log(links[i].label);
-  console.log(links[links.length - 1].label);
-  n = links[links.length - 1].label;
   const nxBtn = document.createElement("button");
   nxBtn.innerText = "Next";
   nxBtn.setAttribute(
@@ -104,13 +93,34 @@ async function fetchingApi(inputPage) {
     " border: 2px solid rgb(241, 115, 241) ; border-radius:7px; font-size: 18px; font-weight:600; padding:12px; cursor:pointer"
   );
   footer.appendChild(nxBtn);
+  function handleNext(value) {
+    value++;
+    fetchingApi(value);
+  }
   nxBtn.addEventListener("click", () => {
-    inputPage++;
-    fetchingApi(inputPage);
+    handleNext(inputPage);
+    console.log(inputPage);
   });
 
+  function handlePrev(value) {
+    value--;
+    fetchingApi(value);
+  }
+
   preBtn.addEventListener("click", () => {
-    inputPage--;
-    fetchingApi(inputPage);
+    handlePrev(inputPage);
+    console.log(inputPage);
+  });
+  limit.addEventListener("input", (e) => {
+    inputLimit = e.target.value;
+
+    ul.innerHTML = "";
+    sl = responseData.slice(0, inputLimit);
+    sl.forEach((info) => {
+      let li = document.createElement("li");
+      li.setAttribute("style", "margin:15px");
+      ul.appendChild(li);
+      li.innerText = info.fact;
+    });
   });
 }
