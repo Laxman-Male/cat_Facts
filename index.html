@@ -9,16 +9,11 @@
 
   <body>
     <div id="navBar">
-      <p id="catFact">Cat Facts</p>
-      <!-- <p id="refresh">Refresh</p> -->
+      <p style="width: 100px"></p>
+      <h1 id="catFact">Cat Facts</h1>
 
       <div>
-        <form id="form_1">
-          <input type="number" placeholder="Page no." id="pageNum" max="30" />
-        </form>
-      </div>
-
-      <div>
+        <label for="limitOption" id="itemPerPage"> Items per page </label>
         <select id="limitOption">
           <option>1</option>
           <option>2</option>
@@ -33,13 +28,10 @@
         </select>
       </div>
     </div>
+    <p id="loadingState">Loading.....</p>
     <section id="mainSection"></section>
     <footer id="pagination">
-      <p id="previous">&laquo;</p>
-      <p>...</p>
-      <p id="paginationValue">1</p>
-      <p>...</p>
-      <p id="next">&raquo;</p>
+      <div id="linkPagination"></div>
     </footer>
 
     <script src="script.js"></script>
