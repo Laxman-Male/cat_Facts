@@ -36,7 +36,7 @@ async function fetchingApi(inputPage) {
   para.innerHTML = " ";
   let ul = document.createElement("ul");
   para.appendChild(ul);
-  sliceLimit = responseData.slice(0, inputLimit || 10);
+  sliceLimit = responseData.slice(0, inputLimit || 1);
   sliceLimit.forEach((info) => {
     let li = document.createElement("li");
     li.setAttribute("style", "margin:15px");
