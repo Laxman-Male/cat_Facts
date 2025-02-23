@@ -2,6 +2,7 @@
 let mainSection = document.getElementById("mainSection");
 let DivPagination = document.getElementById("linkPagination");
 let inputLimit = document.getElementById("limitOption");
+let loading = document.getElementById("loadingState");
 let firstPromise;
 let catfactData;
 let inputPage;
@@ -10,7 +11,11 @@ let current_page = 1;
 let limit = 1;
 forAutoReload(current_page);
 async function forAutoReload(page) {
+  setTimeout(() => {
+    loading.style.display = "block";
+  }, 200);
   const r = await featchApi(limit, page);
+  loading.style.display = "none";
   displayCatFact();
   DivPagination.innerHTML = "";
   fotterPaggination();
@@ -18,6 +23,7 @@ async function forAutoReload(page) {
 
 inputLimit.addEventListener("input", async (e) => {
   limit = e.target.value;
+
   const response = await featchApi(limit, current_page);
 
   catfactData = response.data;

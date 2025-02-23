@@ -47,7 +47,7 @@ form {
 
 #loadingState {
   font-weight: 700;
-  display: block;
+  display: none;
   align-self: center;
   justify-self: center;
   padding: 2px;
