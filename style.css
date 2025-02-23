@@ -1,32 +1,23 @@
 body {
   font-family: sans-serif;
-  background-image: linear-gradient(
-    rgb(245, 239, 245),
-    rgb(248, 227, 248),
-    rgb(243, 186, 243),
-    rgb(243, 162, 243),
-    rgb(243, 113, 243),
-    rgb(248, 97, 248),
-    rgb(245, 45, 245)
-  );
+  background-color: rgb(243, 162, 243);
   height: 100vh;
   padding: 10px;
 }
 #navBar {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
   gap: 10px;
   align-items: center;
+  justify-content: space-between;
 }
 #catFact {
-  grid-column-start: 1;
-  grid-column-end: 3;
   border: 1px solid gray;
   border-radius: 5px;
   font-family: sans-serif;
   align-self: center;
   margin: 0px;
   padding: 10px;
+  justify-self: center;
 }
 
 form {
@@ -43,6 +34,7 @@ form {
   margin: 0px;
   padding: 10px;
 }
+
 #pageNum {
   width: 50%;
   border: 1px solid gray;
@@ -53,6 +45,13 @@ form {
   padding: 10px;
 }
 
+#loadingState {
+  font-weight: 700;
+  display: block;
+  align-self: center;
+  justify-self: center;
+  padding: 2px;
+}
 #mainSection {
   border: 1px solid gray;
   border-radius: 5px;
@@ -69,7 +68,7 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(201, 106, 201);
+  border: 1px solid rgb(241, 115, 241);
   border-radius: 5px;
 }
 
@@ -123,18 +122,15 @@ form {
     width: 60%;
   }
   #navBar {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     align-items: center;
   }
-  #catFact {
-    grid-column-start: 1;
-    grid-column-end: 2;
-  }
 }
 #limitOption {
-  width: 50%;
+  width: fit-content;
   height: 35px;
   background-color: rgb(247, 235, 247);
+}
+#itemPerPage {
+  font-weight: 600;
 }
