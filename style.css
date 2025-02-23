@@ -70,6 +70,7 @@ form {
   justify-content: center;
   border: 1px solid rgb(241, 115, 241);
   border-radius: 5px;
+  padding: 10px;
 }
 
 #previous {
