@@ -9,29 +9,29 @@
 
   <body>
     <div id="navBar">
-      <p id="catFact">Cat Facts</p>
-      <p id="refresh">Refresh</p>
+      <p style="width: 100px"></p>
+      <h1 id="catFact">Cat Facts</h1>
 
       <div>
-        <form id="form_1">
-          <input type="number" placeholder="Page no." id="pageNum" />
-        </form>
-      </div>
-
-      <div>
-        <form id="form_2">
-          <input type="number" placeholder="Limit" id="limit" />
-        </form>
+        <label for="limitOption" id="itemPerPage"> Items per page </label>
+        <select id="limitOption">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
       </div>
     </div>
-    <button type="submit" id="subBtn">Submit</button>
+    <p id="loadingState">Loading.....</p>
     <section id="mainSection"></section>
     <footer id="pagination">
-      <p id="previous">&laquo;</p>
-      <p>...</p>
-      <p id="paginationValue">1</p>
-      <p>...</p>
-      <p id="next">&raquo;</p>
+      <div id="linkPagination"></div>
     </footer>
 
     <script src="script.js"></script>
