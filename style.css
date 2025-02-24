@@ -53,9 +53,10 @@ form {
 
 #loadingState {
   font-weight: 700;
-  display: none;
+  display: block;
   align-self: center;
   justify-self: center;
+  margin-right: 35px;
   padding: 2px;
 }
 #mainSection {
@@ -123,7 +124,6 @@ form {
     width: 60%;
   }
   #limitOption {
-    border: 2px solid red;
     margin: none;
     margin-right: 0px;
   }
@@ -135,6 +135,9 @@ form {
   }
   #mainSection {
     padding: 5px;
+  }
+  #loadingState {
+    margin-left: 30px;
   }
 }
 #limitOption {

@@ -104,6 +104,7 @@ const createPageLink = (link, page) => {
   }
 
   if (window.screen.width < 550) {
+    // window.location.reload();
     if (
       link.active != true &&
       link.label != "Next" &&
@@ -114,6 +115,7 @@ const createPageLink = (link, page) => {
       anchor.style.padding = "0px";
     }
   } else {
+    anchor.innerHTML = link.label;
   }
   anchor.addEventListener("click", (e) => {
     e.preventDefault();
@@ -131,3 +133,12 @@ const createPageLink = (link, page) => {
   });
   return anchor;
 };
+let count = 1;
+function handle() {
+  let windowWidth = window.innerWidth;
+  if (windowWidth > 550 && windowWidth < 580) {
+    window.location.reload();
+    count = 1;
+  }
+}
+window.addEventListener("resize", handle);
