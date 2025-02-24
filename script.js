@@ -23,7 +23,7 @@ async function forAutoReload(page) {
 
 inputLimit.addEventListener("input", async (e) => {
   limit = e.target.value;
-
+  current_page = 1;
   const response = await featchApi(limit, current_page);
 
   catfactData = response.data;
@@ -51,6 +51,7 @@ async function featchApi(inputLimit, current_page) {
   );
   firstPromise = await ApiFeatching.json();
   catfactData = firstPromise.data;
+  console.log(firstPromise.links);
   return firstPromise;
 }
 
@@ -60,7 +61,12 @@ function displayCatFact() {
   mainSection.appendChild(ul);
   catfactData.forEach((e) => {
     let li = document.createElement("li");
-    li.setAttribute("style", "margin:15px");
+    if (window.screen.width < 550) {
+      li.style.margin = "0px";
+      li.style.marginBottom = "7px";
+    } else {
+      li.setAttribute("style", "margin:15px");
+    }
     ul.appendChild(li);
     li.innerText = e.fact;
   });
@@ -81,17 +87,33 @@ const createPageLink = (link, page) => {
   const anchor = document.createElement("a");
   anchor.innerText = link.label;
   anchor.href = "#";
+  console.log(page);
+
   anchor.style.textDecoration = "none";
   if (anchor.innerText == "Previous" || anchor.innerText == "Next") {
-    anchor.style.border = "1px solid black";
+    anchor.style.border = "1px solid violet";
     anchor.style.padding = "1px";
-    anchor.style.margin = "10px";
+    anchor.style.margin = "5px";
   }
   DivPagination.appendChild(anchor);
 
   anchor.style.padding = "8px";
+  let last_page = firstPromise.last_page;
   if (link.active == true) {
     anchor.style.border = "1px solid black";
+  }
+
+  if (window.screen.width < 550) {
+    if (
+      link.active != true &&
+      link.label != "Next" &&
+      link.label != "Previous" &&
+      page != last_page
+    ) {
+      anchor.innerText = ".";
+      anchor.style.padding = "0px";
+    }
+  } else {
   }
   anchor.addEventListener("click", (e) => {
     e.preventDefault();
